@@ -1,0 +1,572 @@
+/* ==========================================================================
+   Salud Mental Joven - Estilos principales
+   Diseño moderno, accesible y adaptable
+   ========================================================================== */
+
+/* 1. Variables de diseño */
+
+:root {
+    --color-primary: #0d9488;
+    --color-primary-hover: #0f766e;
+    --color-primary-light: #d8f3ed;
+    --color-secondary: #3478c7;
+    --color-accent: #8062ce;
+
+    --color-text-main: #17345f;
+    --color-text-muted: #61738c;
+
+    --color-bg-page: #ffffff;
+    --color-bg-card: #ffffff;
+    --color-border: #e1eaf0;
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 26px;
+
+    --shadow-sm: 0 3px 12px rgba(23, 52, 95, 0.04);
+    --shadow-md: 0 14px 32px rgba(23, 52, 95, 0.09);
+
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 2. Reinicio general */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg-page);
+    color: var(--color-text-main);
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--color-primary-hover);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 4px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1240px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1.75rem;
+    padding-left: 1.75rem;
+}
+
+/* 3. Cabecera y navegación */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid #edf1f5;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--color-text-main);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0d9488, #51c5b0);
+    border-radius: 15px;
+    font-size: 1.5rem;
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.main-nav a {
+    display: inline-block;
+    padding: 0.65rem 1rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--color-primary-hover);
+    background-color: #eaf8f5;
+}
+
+/* 4. Contenido principal */
+
+.site-main {
+    flex: 1;
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+/* 5. Hero principal */
+
+.hero-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 350px;
+    margin-bottom: 4rem;
+    padding: 4rem 8%;
+    overflow: hidden;
+    background: linear-gradient(120deg, #e7f7f3, #f0f7ff 75%, #ffffff);
+    border: 1px solid #e0f0ed;
+    border-radius: var(--radius-lg);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+}
+
+.hero-eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--color-primary-hover);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.hero-section h1 {
+    max-width: 650px;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-main);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+}
+
+.hero-lead {
+    max-width: 570px;
+    margin: 0 0 1.75rem;
+    color: #526781;
+    font-size: 1.12rem;
+    line-height: 1.8;
+}
+
+.hero-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 155px;
+    height: 155px;
+    color: #ffffff;
+    background: linear-gradient(140deg, #0d9488, #7bd8c6);
+    border-radius: 45% 55% 55% 45%;
+    box-shadow: 0 20px 45px rgba(13, 148, 136, 0.18);
+    font-size: 5rem;
+    transform: rotate(-8deg);
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.7rem 1.1rem;
+    color: #087b73;
+    background-color: #d8f3ed;
+    border: 1px solid #bce8df;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 650;
+}
+
+.badge-dot {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    background-color: #0d9488;
+    border-radius: 50%;
+}
+
+/* 6. Encabezados de sección */
+
+.modules-preview {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.75rem 2rem;
+}
+
+.section-heading {
+    max-width: 760px;
+    margin: 0 auto 2.75rem;
+    text-align: center;
+}
+
+.section-kicker {
+    color: var(--color-primary);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+.section-title {
+    margin: 0.7rem 0 0.8rem;
+    color: var(--color-text-main);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.035em;
+    text-align: center;
+}
+
+.section-description {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* 7. Tarjetas de los módulos */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 1.8rem;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 21px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-articles {
+    background: linear-gradient(145deg, #effaf7, #ffffff);
+    border-color: #d5eee7;
+}
+
+.card-activities {
+    background: linear-gradient(145deg, #f5f1ff, #ffffff);
+    border-color: #e7defb;
+}
+
+.card-resources {
+    background: linear-gradient(145deg, #eff6ff, #ffffff);
+    border-color: #d9e7fc;
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 68px;
+    margin-bottom: 1.35rem;
+    background-color: #d5f1ea;
+    border-radius: 20px;
+    font-size: 1.9rem;
+}
+
+.card-activities .card-icon {
+    background-color: #e8defc;
+}
+
+.card-resources .card-icon {
+    background-color: #dceaff;
+}
+
+.card-number {
+    margin-bottom: 0.55rem;
+    color: #087f76;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.card-activities .card-number {
+    color: #7956c7;
+}
+
+.card-resources .card-number {
+    color: #3275c6;
+}
+
+.info-card h3 {
+    margin-bottom: 0.8rem;
+    color: var(--color-text-main);
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.info-card p {
+    flex: 1;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.96rem;
+    line-height: 1.8;
+}
+
+.tag {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 0.45rem 0.85rem;
+    color: #087b73;
+    background-color: #d6f1eb;
+    border-radius: 999px;
+    font-size: 0.77rem;
+    font-weight: 750;
+}
+
+.card-activities .tag {
+    color: #6f4dbb;
+    background-color: #e9e0fc;
+}
+
+.card-resources .tag {
+    color: #2866b0;
+    background-color: #deebff;
+}
+
+/* 8. Mensaje final */
+
+.closing-section {
+    padding: 2.5rem 1.5rem 3.5rem;
+    text-align: center;
+}
+
+.closing-section p {
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-hover);
+    font-size: 1rem;
+    font-weight: 650;
+}
+
+.closing-section h2 {
+    color: var(--color-text-main);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+/* 9. Pie de página */
+
+.site-footer {
+    padding: 2rem 0;
+    background-color: #f8fbfd;
+    border-top: 1px solid #e7edf2;
+    text-align: center;
+}
+
+.footer-content p {
+    margin-bottom: 0.3rem;
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+}
+
+.footer-note {
+    color: #718198;
+    font-size: 0.8rem;
+}
+
+/* 10. Adaptación a tabletas */
+
+@media (max-width: 900px) {
+    .header-container {
+        gap: 1rem;
+    }
+
+    .main-nav ul {
+        gap: 0.2rem;
+    }
+
+    .main-nav a {
+        padding: 0.55rem 0.7rem;
+    }
+
+    .hero-section {
+        padding: 3rem 6%;
+    }
+
+    .hero-decoration {
+        width: 115px;
+        height: 115px;
+        font-size: 3.8rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* 11. Adaptación a móviles */
+
+@media (max-width: 640px) {
+    html {
+        scroll-padding-top: 150px;
+    }
+
+    .container {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .logo {
+        font-size: 1.15rem;
+    }
+
+    .logo-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .main-nav {
+        width: 100%;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+        gap: 0.2rem;
+    }
+
+    .main-nav a {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .site-main {
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .hero-section {
+        min-height: auto;
+        margin-bottom: 2.75rem;
+        padding: 2.5rem 1.25rem;
+        border-radius: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.15rem;
+        letter-spacing: -0.035em;
+    }
+
+    .hero-lead {
+        font-size: 1rem;
+    }
+
+    .hero-decoration {
+        display: none;
+    }
+
+    .status-badge {
+        align-items: flex-start;
+        max-width: 100%;
+        font-size: 0.82rem;
+    }
+
+    .modules-preview {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .section-heading {
+        margin-bottom: 2rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .info-card {
+        padding: 1.5rem;
+    }
+
+    .closing-section {
+        padding-top: 2rem;
+        padding-bottom: 2.5rem;
+    }
+}
+
+/* 12. Preferencias de movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

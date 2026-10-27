@@ -1,0 +1,29 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+ENV/
+
+# Bytecode de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Base de datos local (evita sobreescribir datos entre colaboradores)
+# Si necesitas entregar la base de datos con datos de prueba, puedes descomentar o incluir un fixture .json
+*.sqlite3
+
+# Archivos estáticos recolectados
+staticfiles/
+media/
+
+# Entornos y configuración de IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema operativo
+Thumbs.db
+Desktop.ini
+.DS_Store

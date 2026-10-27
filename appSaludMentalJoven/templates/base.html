@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Plataforma de recursos y apoyo para la salud mental y bienestar emocional de jóvenes.">
+    <title>{% block title %}Salud Mental Joven{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="{% url 'appSaludMentalJoven:index' %}" class="logo">
+                <span class="logo-icon" aria-hidden="true">🌱</span>
+                <span class="logo-text">Salud Mental Joven</span>
+            </a>
+            <nav class="main-nav" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="{% url 'appSaludMentalJoven:index' %}" class="active">Inicio</a></li>
+                    <li><a href="#articulos">Artículos</a></li>
+                    <li><a href="#actividades">Actividades</a></li>
+                    <li><a href="#recursos">Recursos de ayuda</a></li>
+                    <li><a href="/admin/">Administración</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Salud Mental Joven - Proyecto Web Colaborativo (Universidad de Deusto)</p>
+            <p class="footer-note">Estructura base del backend desarrollada con Django.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
