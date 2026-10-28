@@ -63,7 +63,9 @@ Proyectoweb/
 
 5. **Iniciar el servidor de desarrollo**:
    ```bash
-   python manage.py runserver
+   python.exe manage.py runserver
+
+   .\venv\Scripts\python.exe manage.py runserver
    ```
    Acceso a la web: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)  
    Acceso a administración: [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
