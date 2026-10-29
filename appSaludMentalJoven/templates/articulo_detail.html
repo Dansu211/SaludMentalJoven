@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{ articulo.titulo }} | Salud Mental Joven{% endblock %}
+
+{% block content %}
+<article class="info-card">
+    <span class="card-number">{{ articulo.categoria.nombre|upper }} — {{ articulo.fecha_publicacion|date:"d/m/Y"
+        }}</span>
+    <h1>{{ articulo.titulo }}</h1>
+    <p><strong>Por {{ articulo.autor }}</strong></p>
+    <hr>
+    <div>{{ articulo.contenido|linebreaks }}</div>
+    <br>
+    <a href="{% url 'appSaludMentalJoven:articulos' %}" class="tag">&larr; Volver</a>
+</article>
+{% endblock %}

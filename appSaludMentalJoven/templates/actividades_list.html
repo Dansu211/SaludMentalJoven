@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Actividades | Salud Mental Joven{% endblock %}
+
+{% block content %}
+<h2>Talleres y Actividades</h2>
+<div class="cards-grid">
+    {% for act in actividades %}
+    <article class="info-card">
+        <span class="card-number">📅 {{ act.fecha|date:"d/m/Y H:i" }} | {{ act.lugar }}</span>
+        <h3>{{ act.titulo }}</h3>
+        <p>{{ act.descripcion|truncatewords:15 }}</p>
+        <a href="{% url 'appSaludMentalJoven:detalle_actividad' act.id %}" class="tag">Ver detalles &rarr;</a>
+    </article>
+    {% empty %}<p>No hay actividades programadas.</p>{% endfor %}
+</div>
+{% endblock %}

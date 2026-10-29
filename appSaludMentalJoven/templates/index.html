@@ -1,98 +1,50 @@
 {% extends 'base.html' %}
-
 {% block title %}Inicio | Salud Mental Joven{% endblock %}
 
 {% block content %}
-
-<section class="hero-section" aria-labelledby="hero-title">
+<section class="hero-section">
     <div class="hero-content">
         <span class="hero-eyebrow">Tu bienestar importa ♡</span>
-
-        <h1 id="hero-title">
-            Bienestar emocional y apoyo para jóvenes
-        </h1>
-
-        <p class="hero-lead">
-            Un espacio seguro con recursos, talleres y artículos
-            para cuidar de tu salud mental día a día.
-        </p>
-
-        <div class="status-badge" role="status">
-            <span class="badge-dot" aria-hidden="true"></span>
-            <span>Proyecto en desarrollo </span>
-        </div>
-    </div>
-
-    <div class="hero-decoration" aria-hidden="true">
-        <span>♡</span>
+        <h1 id="hero-title">Bienestar emocional y apoyo para jóvenes</h1>
+        <p class="hero-lead">Un espacio seguro con recursos, talleres y artículos.</p>
     </div>
 </section>
 
-<section class="modules-preview" aria-labelledby="preview-title">
-    <div class="section-heading">
-        <span class="section-kicker">DESCUBRE Y APRENDE</span>
-        <h2 id="preview-title" class="section-title">
-            Un espacio para ti
-        </h2>
-        <p class="section-description">
-            Explora nuestros recursos y encuentra nuevas formas
-            de cuidar de tu bienestar emocional.
-        </p>
-    </div>
-
+<section class="modules-preview">
+    <h2>Últimos Artículos</h2>
     <div class="cards-grid">
-
-        <article class="info-card card-articles" id="articulos">
-            <div class="card-icon" aria-hidden="true">📖</div>
-
-            <span class="card-number">01 / APRENDE</span>
-
-            <h3>Artículos informativos</h3>
-
-            <p>
-                Aprende a gestionar el estrés, comprender la ansiedad,
-                mejorar tu descanso y fortalecer tu autoestima.
-            </p>
-
-            <span class="tag">Módulo Artículos</span>
+        {% for a in articulos %}
+        <article class="info-card">
+            <span class="card-number">{{ a.categoria.nombre|upper }}</span>
+            <h3>{{ a.titulo }}</h3>
+            <p>{{ a.resumen }}</p>
+            <a href="{% url 'appSaludMentalJoven:detalle_articulo' a.id %}" class="tag">Leer artículo &rarr;</a>
         </article>
+        {% empty %}<p>No hay artículos.</p>{% endfor %}
+    </div>
 
-        <article class="info-card card-activities" id="actividades">
-            <div class="card-icon" aria-hidden="true">👥</div>
-
-            <span class="card-number">02 / CONECTA</span>
-
-            <h3>Talleres y actividades</h3>
-
-            <p>
-                Descubre encuentros, talleres y actividades para
-                compartir experiencias y desarrollar hábitos saludables.
-            </p>
-
-            <span class="tag">Módulo Actividades</span>
+    <h2>Próximas Actividades</h2>
+    <div class="cards-grid">
+        {% for act in actividades %}
+        <article class="info-card">
+            <span class="card-number">📅 {{ act.fecha|date:"d/m/Y H:i" }} | {{ act.lugar }}</span>
+            <h3>{{ act.titulo }}</h3>
+            <p>{{ act.descripcion|truncatewords:15 }}</p>
+            <a href="{% url 'appSaludMentalJoven:detalle_actividad' act.id %}" class="tag">Ver detalles &rarr;</a>
         </article>
+        {% empty %}<p>No hay actividades.</p>{% endfor %}
+    </div>
 
-        <article class="info-card card-resources" id="recursos">
-            <div class="card-icon" aria-hidden="true">💚</div>
-
-            <span class="card-number">03 / ENCUENTRA APOYO</span>
-
-            <h3>Recursos y líneas de ayuda</h3>
-
-            <p>
-                Encuentra información de contacto y recursos de apoyo
-                para saber dónde acudir cuando necesites ayuda.
-            </p>
-
-            <span class="tag">Módulo Recursos</span>
+    <h2>Recursos de Ayuda</h2>
+    <div class="cards-grid">
+        {% for r in recursos %}
+        <article class="info-card">
+            <span class="card-number">HORARIO: {{ r.horario }}</span>
+            <h3>{{ r.nombre }}</h3>
+            <p>📞 {{ r.telefono }}</p>
+            {% if r.web %}<a href="{{ r.web }}" target="_blank" class="tag">Visitar web &rarr;</a>{% endif %}
         </article>
-
+        {% empty %}<p>No hay recursos.</p>{% endfor %}
     </div>
 </section>
-
-<section class="closing-section" aria-label="Mensaje de apoyo">
-    <p>No tienes que tenerlo todo resuelto.</p>
-    <h2>Cuidarte también es avanzar. ♡</h2>
-</section>
-
 {% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Recursos de Ayuda | Salud Mental Joven{% endblock %}
+
+{% block content %}
+<h2>Líneas y Recursos de Apoyo</h2>
+<div class="cards-grid">
+    {% for r in recursos %}
+    <article class="info-card">
+        <span class="card-number">HORARIO: {{ r.horario }}</span>
+        <h3>{{ r.nombre }}</h3>
+        <p>{{ r.descripcion }}</p>
+        <p>📞 <strong>{{ r.telefono }}</strong></p>
+        {% if r.web %}<a href="{{ r.web }}" target="_blank" class="tag">Visitar web &rarr;</a>{% endif %}
+    </article>
+    {% empty %}<p>No hay recursos registrados.</p>{% endfor %}
+</div>
+{% endblock %}

@@ -59,6 +59,10 @@ Proyectoweb/
 4. **Crear un superusuario** (para acceder al panel de administración):
    ```bash
    python manage.py createsuperuser
+
+   Superusuario de prueba:
+   username-->admin
+   password-->admin123
    ```
 
 5. **Iniciar el servidor de desarrollo**:
