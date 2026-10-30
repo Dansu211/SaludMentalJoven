@@ -11,7 +11,7 @@ __pycache__/
 
 # Base de datos local (evita sobreescribir datos entre colaboradores)
 # Si necesitas entregar la base de datos con datos de prueba, puedes descomentar o incluir un fixture .json
-*.sqlite3
+# *.sqlite3
 
 # Archivos estáticos recolectados
 staticfiles/
