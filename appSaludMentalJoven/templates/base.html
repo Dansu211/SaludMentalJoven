@@ -4,14 +4,20 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{% block title %}Salud Mental Joven{% endblock %}</title>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
     <header class="site-header">
         <div class="container header-container">
-            <a href="{% url 'appSaludMentalJoven:index' %}" class="logo">🌱 Salud Mental Joven</a>
+            <a href="{% url 'appSaludMentalJoven:index' %}" class="logo">
+                🌱 Salud Mental Joven
+            </a>
+
             <nav class="main-nav">
                 <ul>
                     <li><a href="{% url 'appSaludMentalJoven:index' %}">Inicio</a></li>
@@ -34,3 +40,4 @@
 </body>
 
 </html>
+```
