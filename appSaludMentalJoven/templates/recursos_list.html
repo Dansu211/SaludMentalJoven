@@ -5,12 +5,12 @@
 <h1>Líneas y Recursos de Apoyo</h1>
 <div class="cards-grid">
     {% for r in recursos %}
-    <article class="info-card">
-        <span class="card-number">HORARIO: {{ r.horario }}</span>
+    <article class="info-card card-resources">
+        <span class="card-number">{{ r.formato.nombre|upper }} | {{ r.horario }}</span>
         <h3>{{ r.nombre }}</h3>
-        <p>{{ r.descripcion }}</p>
-        <p>📞 <strong>{{ r.telefono }}</strong></p>
-        {% if r.web %}<a href="{{ r.web }}" target="_blank" class="tag">Visitar web &rarr;</a>{% endif %}
+        <p>{{ r.descripcion|truncatewords:20 }}</p>
+        {% if r.telefono %}<p>📞 <strong>{{ r.telefono }}</strong></p>{% endif %}
+        <a href="{% url 'appSaludMentalJoven:detalle_recurso' r.id %}" class="tag">Ver recurso &rarr;</a>
     </article>
     {% empty %}<p>No hay recursos registrados.</p>{% endfor %}
 </div>

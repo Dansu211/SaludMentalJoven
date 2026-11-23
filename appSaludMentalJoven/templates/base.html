@@ -22,9 +22,10 @@
                 <ul>
                     <li><a href="{% url 'appSaludMentalJoven:index' %}">Inicio</a></li>
                     <li><a href="{% url 'appSaludMentalJoven:articulos' %}">Artículos</a></li>
+                    <li><a href="{% url 'appSaludMentalJoven:categorias' %}">Categorías</a></li>
                     <li><a href="{% url 'appSaludMentalJoven:actividades' %}">Actividades</a></li>
                     <li><a href="{% url 'appSaludMentalJoven:recursos' %}">Recursos de ayuda</a></li>
-                    <li><a href="/admin/">Administración</a></li>
+                    <li><a href="{% url 'admin:index' %}">Administración</a></li>
                 </ul>
             </nav>
         </div>
@@ -40,4 +41,3 @@
 </body>
 
 </html>
-```

@@ -10,6 +10,11 @@
         <strong>Plazas:</strong>
         {{ actividad.plazas }}
     </p>
+    {% if actividad.tematicas.exists %}
+    <p><strong>Temáticas:</strong>
+        {% for t in actividad.tematicas.all %}<a href="{% url 'appSaludMentalJoven:detalle_tematica' t.id %}" class="tag">{{ t.nombre }}</a> {% endfor %}
+    </p>
+    {% endif %}
     <hr>
     <div>{{ actividad.descripcion|linebreaks }}</div>
     <br>

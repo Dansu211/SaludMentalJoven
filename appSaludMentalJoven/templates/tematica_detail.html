@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}{{ tematica.nombre }} | Salud Mental Joven{% endblock %}
+
+{% block content %}
+<h1>Temática: {{ tematica.nombre }}</h1>
+<p>{{ tematica.descripcion }}</p>
+
+<h2>Artículos</h2>
+<div class="cards-grid">
+    {% for a in articulos %}
+    <article class="info-card">
+        <h3>{{ a.titulo }}</h3>
+        <p>{{ a.resumen }}</p>
+        <a href="{% url 'appSaludMentalJoven:detalle_articulo' a.id %}" class="tag">Leer artículo &rarr;</a>
+    </article>
+    {% empty %}<p>No hay artículos sobre esta temática.</p>{% endfor %}
+</div>
+
+<h2>Actividades</h2>
+<div class="cards-grid">
+    {% for act in actividades %}
+    <article class="info-card card-activities">
+        <span class="card-number">📅 {{ act.fecha|date:"d/m/Y H:i" }}</span>
+        <h3>{{ act.titulo }}</h3>
+        <a href="{% url 'appSaludMentalJoven:detalle_actividad' act.id %}" class="tag">Ver detalles &rarr;</a>
+    </article>
+    {% empty %}<p>No hay actividades sobre esta temática.</p>{% endfor %}
+</div>
+
+<h2>Recursos de ayuda</h2>
+<div class="cards-grid">
+    {% for r in recursos %}
+    <article class="info-card card-resources">
+        <span class="card-number">{{ r.formato.nombre|upper }}</span>
+        <h3>{{ r.nombre }}</h3>
+        <a href="{% url 'appSaludMentalJoven:detalle_recurso' r.id %}" class="tag">Ver recurso &rarr;</a>
+    </article>
+    {% empty %}<p>No hay recursos sobre esta temática.</p>{% endfor %}
+</div>
+{% endblock %}

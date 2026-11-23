@@ -6,7 +6,9 @@
 <div class="cards-grid">
     {% for a in articulos %}
     <article class="info-card">
-        <span class="card-number">{{ a.categoria.nombre|upper }}</span>
+        <span class="card-number">
+            {% for c in a.categorias.all %}<a href="{% url 'appSaludMentalJoven:detalle_categoria' c.id %}">{{ c.nombre|upper }}</a>{% if not forloop.last %} · {% endif %}{% endfor %}
+        </span>
         <h3>{{ a.titulo }}</h3>
         <p>{{ a.resumen }}</p>
         <a href="{% url 'appSaludMentalJoven:detalle_articulo' a.id %}" class="tag">Leer artículo &rarr;</a>

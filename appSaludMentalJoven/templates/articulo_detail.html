@@ -4,10 +4,16 @@
 {% block content %}
 <article class="info-card">
     <span class="card-number">
-        {{ articulo.categoria.nombre|upper }} — {{ articulo.fecha_publicacion|date:"d/m/Y"}}
+        {% for c in articulo.categorias.all %}<a href="{% url 'appSaludMentalJoven:detalle_categoria' c.id %}">{{ c.nombre|upper }}</a>{% if not forloop.last %} · {% endif %}{% endfor %}
+        — {{ articulo.fecha_publicacion|date:"d/m/Y" }}
     </span>
     <h1>{{ articulo.titulo }}</h1>
     <p><strong>Por {{ articulo.autor }}</strong></p>
+    {% if articulo.tematicas.exists %}
+    <p><strong>Temáticas:</strong>
+        {% for t in articulo.tematicas.all %}<a href="{% url 'appSaludMentalJoven:detalle_tematica' t.id %}" class="tag">{{ t.nombre }}</a> {% endfor %}
+    </p>
+    {% endif %}
     <hr>
     <div>{{ articulo.contenido|linebreaks }}</div>
     <br>

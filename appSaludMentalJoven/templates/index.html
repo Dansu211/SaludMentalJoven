@@ -11,11 +11,26 @@
 </section>
 
 <section class="modules-preview">
+    <h2>Recursos de ayuda por formato</h2>
+    <div class="cards-grid">
+        {% for r in recursos_por_formato %}
+        <article class="info-card card-resources">
+            <span class="card-number">{{ r.formato.nombre|upper }}</span>
+            <h3>{{ r.nombre }}</h3>
+            <p>{{ r.descripcion|truncatewords:15 }}</p>
+            {% if r.telefono %}<p>📞 {{ r.telefono }}</p>{% endif %}
+            <a href="{% url 'appSaludMentalJoven:detalle_recurso' r.id %}" class="tag">Ver recurso &rarr;</a>
+        </article>
+        {% empty %}<p>No hay recursos.</p>{% endfor %}
+    </div>
+
     <h2>Últimos Artículos</h2>
     <div class="cards-grid">
         {% for a in articulos %}
         <article class="info-card">
-            <span class="card-number">{{ a.categoria.nombre|upper }}</span>
+            <span class="card-number">
+                {% for c in a.categorias.all %}<a href="{% url 'appSaludMentalJoven:detalle_categoria' c.id %}">{{ c.nombre|upper }}</a>{% if not forloop.last %} · {% endif %}{% endfor %}
+            </span>
             <h3>{{ a.titulo }}</h3>
             <p>{{ a.resumen }}</p>
             <a href="{% url 'appSaludMentalJoven:detalle_articulo' a.id %}" class="tag">Leer artículo &rarr;</a>
@@ -33,18 +48,6 @@
             <a href="{% url 'appSaludMentalJoven:detalle_actividad' act.id %}" class="tag">Ver detalles &rarr;</a>
         </article>
         {% empty %}<p>No hay actividades.</p>{% endfor %}
-    </div>
-
-    <h2>Recursos de Ayuda</h2>
-    <div class="cards-grid">
-        {% for r in recursos %}
-        <article class="info-card">
-            <span class="card-number">HORARIO: {{ r.horario }}</span>
-            <h3>{{ r.nombre }}</h3>
-            <p>📞 {{ r.telefono }}</p>
-            {% if r.web %}<a href="{{ r.web }}" target="_blank" class="tag">Visitar web &rarr;</a>{% endif %}
-        </article>
-        {% empty %}<p>No hay recursos.</p>{% endfor %}
     </div>
 </section>
 {% endblock %}
