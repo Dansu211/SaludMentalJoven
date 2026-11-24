@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Categoria(models.Model):
@@ -76,6 +77,10 @@ class Actividad(models.Model):
 
     def __str__(self):
         return self.titulo
+
+    @property
+    def finalizada(self):
+        return self.fecha < timezone.now()
 
     @property
     def plazas_libres(self):

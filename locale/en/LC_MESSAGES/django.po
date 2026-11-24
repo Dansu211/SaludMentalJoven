@@ -182,6 +182,24 @@ msgstr "Registration complete, %(nombre)s! See you there."
 msgid "Últimos artículos"
 msgstr "Latest articles"
 
+msgid "Esta actividad ya se ha celebrado."
+msgstr "This activity has already taken place."
+
+msgid "Esta actividad ya se ha celebrado. ¡Échale un vistazo a las próximas!"
+msgstr "This activity has already taken place. Take a look at the upcoming ones!"
+
+msgid "Finalizada"
+msgstr "Finished"
+
+msgid "Buscar ayuda"
+msgstr "Find help"
+
+msgid "Ver talleres"
+msgstr "See workshops"
+
+msgid "¿Lo estás pasando mal? Llama al 024, gratis y 24 h."
+msgstr "Having a hard time? Call 024, free and 24/7."
+
 msgid "%(n)s artículo"
 msgid_plural "%(n)s artículos"
 msgstr[0] "%(n)s article"

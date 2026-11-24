@@ -8,7 +8,13 @@
         <span class="hero-eyebrow">{% translate "Tu bienestar importa" %} ♡</span>
         <h1 id="hero-title">{% translate "Bienestar emocional y apoyo para jóvenes" %}</h1>
         <p class="hero-lead">{% translate "Un espacio seguro con recursos, talleres y artículos." %}</p>
+        <div class="hero-acciones">
+            <a href="{% url 'appSaludMentalJoven:recursos' %}" class="btn">{% translate "Buscar ayuda" %}</a>
+            <a href="{% url 'appSaludMentalJoven:actividades' %}" class="btn btn-secundario">{% translate "Ver talleres" %}</a>
+        </div>
+        <p class="status-badge"><span class="badge-dot"></span>{% translate "¿Lo estás pasando mal? Llama al 024, gratis y 24 h." %}</p>
     </div>
+    <div class="hero-decoration" aria-hidden="true">🌱</div>
 </section>
 
 <section class="modules-preview">

@@ -33,6 +33,8 @@ class InscripcionForm(forms.ModelForm):
     def clean(self):
         cleaned = super().clean()
         if self.actividad is not None:
+            if self.actividad.finalizada:
+                raise forms.ValidationError(_('Esta actividad ya se ha celebrado.'))
             email = cleaned.get('email')
             if email and self.actividad.inscripciones.filter(email__iexact=email).exists():
                 raise forms.ValidationError(_('Ya existe una inscripción con ese email en esta actividad.'))

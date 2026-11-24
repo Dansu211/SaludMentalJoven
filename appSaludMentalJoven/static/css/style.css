@@ -762,3 +762,114 @@ button:focus-visible {
         animation: none;
     }
 }
+
+/* ==========================================================
+   Pulido visual E4a: títulos, separadores, portada y estados
+   ========================================================== */
+.site-main > h1 {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+.site-main > h1 + p {
+    max-width: 720px;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+}
+
+.site-main > h1 + .cards-grid,
+.site-main > h1 + .filtros,
+.site-main > h1 + .buscador {
+    margin-top: 1.5rem;
+}
+
+.site-main > h2,
+.modules-preview > h2 {
+    margin: 3rem 0 1.25rem;
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+    letter-spacing: -0.02em;
+}
+
+.modules-preview > h2:first-child {
+    margin-top: 0;
+}
+
+/* El <hr> estaba encogido a un punto por el flex de la tarjeta */
+.info-card hr {
+    align-self: stretch;
+    height: 0;
+    margin: 1.25rem 0;
+    border: 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.info-card ul {
+    margin: 0.5rem 0 1rem 1.25rem;
+}
+
+.info-card > .tag {
+    margin-top: auto;
+}
+
+/* Portada: botones de acción */
+.hero-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-secundario {
+    background: #ffffff;
+    color: var(--color-primary-hover);
+    box-shadow: inset 0 0 0 1px var(--color-primary);
+}
+
+.btn-secundario:hover {
+    background: var(--color-primary-light);
+}
+
+.hero-section .status-badge {
+    margin: 0;
+}
+
+/* Actividades ya celebradas */
+.badge-finalizada {
+    display: inline-block;
+    margin: 0 0 0.5rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    background: #eef1f5;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.card-finalizada {
+    opacity: 0.7;
+}
+
+.alert-info {
+    background: #eef4fb;
+    color: #1d4f8a;
+}
+
+@media (max-width: 640px) {
+    .site-main > h2,
+    .modules-preview > h2 {
+        margin-top: 2.25rem;
+    }
+
+    .hero-acciones .btn {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+}

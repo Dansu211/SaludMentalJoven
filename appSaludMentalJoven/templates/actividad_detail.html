@@ -4,7 +4,7 @@
 
 {% block content %}
 <article class="info-card">
-    <span class="card-number">📍 {{ actividad.lugar }}</span>
+    <span class="card-number">📍 {{ actividad.lugar }}{% if actividad.finalizada %} <span class="badge-finalizada">{% translate "Finalizada" %}</span>{% endif %}</span>
     <h1>{{ actividad.titulo }}</h1>
     <p><strong>{% translate "Fecha" %}:</strong>
         {{ actividad.fecha|date:"d/m/Y H:i" }} |
@@ -25,7 +25,9 @@
 
     <div id="inscripcion-resultado" class="form-resultado" aria-live="polite"></div>
 
-    {% if actividad.plazas_libres > 0 %}
+    {% if actividad.finalizada %}
+    <p class="alert alert-info">{% translate "Esta actividad ya se ha celebrado. ¡Échale un vistazo a las próximas!" %}</p>
+    {% elif actividad.plazas_libres > 0 %}
     <form method="post" id="form-inscripcion" class="form-inscripcion" novalidate>
         {% csrf_token %}
         {% if form.non_field_errors %}

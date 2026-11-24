@@ -6,8 +6,9 @@
 <h1>{% translate "Talleres y Actividades" %}</h1>
 <div class="cards-grid">
     {% for act in actividades %}
-    <article class="info-card">
+    <article class="info-card{% if act.finalizada %} card-finalizada{% endif %}">
         <span class="card-number">📅 {{ act.fecha|date:"d/m/Y H:i" }} | {{ act.lugar }}</span>
+        {% if act.finalizada %}<span class="badge-finalizada">{% translate "Finalizada" %}</span>{% endif %}
         <h2>{{ act.titulo }}</h2>
         <p>{{ act.descripcion|truncatewords:15 }}</p>
         <a href="{% url 'appSaludMentalJoven:detalle_actividad' act.id %}" class="tag">{% translate "Ver detalles" %} &rarr;</a>

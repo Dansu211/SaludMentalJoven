@@ -79,12 +79,4 @@ SaludMentalJoven/
    python manage.py test appSaludMentalJoven
    ```
 
-## 4. Funcionalidades añadidas (E4a)
 
-| Opción | Puntos | Qué se ha hecho |
-|---|---|---|
-| 1. JavaScript / AJAX | 0,50 | `static/js/main.js`: buscador de artículos por AJAX (JSON), inscripción en actividades por AJAX sin recargar la página, filtro de recursos por formato con animación y botón «volver arriba». |
-| 2. Vistas basadas en clases | 0,50 | Todas las vistas usan `TemplateView`, `ListView`, `DetailView` o `View`. |
-| 3. Formularios | 0,50 | Nueva entidad `Inscripcion` y `InscripcionForm` (`ModelForm`) en el detalle de cada actividad. |
-| 5. Datos iniciales | 0,25 | `fixtures/datos_iniciales.json` con todas las entidades. |
-| 6. Multilingüismo (i18n) | 0,50 | Español e inglés, URLs con prefijo `/es/` y `/en/` y selector de idioma. |

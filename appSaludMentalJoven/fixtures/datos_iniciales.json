@@ -150,6 +150,25 @@
   }
 },
 {
+  "model": "appSaludMentalJoven.articulo",
+  "pk": 4,
+  "fields": {
+    "titulo": "Señales de alerta: cuándo pedir ayuda profesional",
+    "resumen": "Cómo distinguir un mal momento pasajero de algo que necesita apoyo de un profesional.",
+    "contenido": "Todos tenemos días malos. Pero si la tristeza, la ansiedad o el insomnio duran más de dos semanas, te impiden hacer tu vida normal o aparecen pensamientos de hacerte daño, es momento de pedir ayuda.\n\nHabla con alguien de confianza, acude a tu centro de salud o al servicio de orientación de tu universidad. Si es urgente, llama al 024 o al 112.",
+    "autor": "Equipo SMJ",
+    "fecha_publicacion": "2026-11-24",
+    "categorias": [
+      2,
+      1
+    ],
+    "tematicas": [
+      1,
+      5
+    ]
+  }
+},
+{
   "model": "appSaludMentalJoven.actividad",
   "pk": 1,
   "fields": {
@@ -175,6 +194,36 @@
     "plazas": 20,
     "tematicas": [
       6
+    ]
+  }
+},
+{
+  "model": "appSaludMentalJoven.actividad",
+  "pk": 3,
+  "fields": {
+    "titulo": "Taller de higiene del sueño",
+    "descripcion": "Aprende rutinas sencillas para dormir mejor en época de exámenes: horarios, pantallas, cafeína y técnicas de relajación antes de acostarte.",
+    "fecha": "2027-01-20T16:30:00Z",
+    "lugar": "Aula 2.4 - Modalidad Presencial",
+    "plazas": 15,
+    "tematicas": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "appSaludMentalJoven.actividad",
+  "pk": 4,
+  "fields": {
+    "titulo": "Círculo de autoestima: cuídate como cuidas a los demás",
+    "descripcion": "Sesión en grupo reducido para trabajar el diálogo interno, poner límites sanos y reconocer tus logros, guiada por una psicóloga.",
+    "fecha": "2027-02-10T17:00:00Z",
+    "lugar": "Sala Virtual (Online por Zoom)",
+    "plazas": 12,
+    "tematicas": [
+      6,
+      3
     ]
   }
 },
@@ -249,6 +298,24 @@
     "tematicas": [
       6,
       5
+    ]
+  }
+},
+{
+  "model": "appSaludMentalJoven.recursoayuda",
+  "pk": 4,
+  "fields": {
+    "nombre": "Servicio de Orientación Universitaria",
+    "descripcion": "Atención psicológica presencial, gratuita y confidencial para estudiantes. Se pide cita por email y se atiende en el campus.",
+    "formato": 3,
+    "telefono": "",
+    "email": "orientacion@example.com",
+    "web": "",
+    "horario": "L-V 9:00-14:00",
+    "tematicas": [
+      6,
+      1,
+      2
     ]
   }
 }

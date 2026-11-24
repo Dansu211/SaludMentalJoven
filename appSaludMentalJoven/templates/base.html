@@ -7,6 +7,8 @@
 
     <title>{% block title %}Salud Mental Joven{% endblock %}</title>
 
+    <meta name="description" content="{% translate 'Bienestar emocional y apoyo para jóvenes' %}">
+    <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
@@ -18,14 +20,16 @@
             </a>
 
             <nav class="main-nav" aria-label="{% translate 'Navegación principal' %}">
+                {% with n=request.resolver_match.url_name %}
                 <ul>
-                    <li><a href="{% url 'appSaludMentalJoven:index' %}">{% translate "Inicio" %}</a></li>
-                    <li><a href="{% url 'appSaludMentalJoven:articulos' %}">{% translate "Artículos" %}</a></li>
-                    <li><a href="{% url 'appSaludMentalJoven:categorias' %}">{% translate "Categorías" %}</a></li>
-                    <li><a href="{% url 'appSaludMentalJoven:actividades' %}">{% translate "Actividades" %}</a></li>
-                    <li><a href="{% url 'appSaludMentalJoven:recursos' %}">{% translate "Recursos de ayuda" %}</a></li>
+                    <li><a href="{% url 'appSaludMentalJoven:index' %}"{% if n == 'index' %} class="active" aria-current="page"{% endif %}>{% translate "Inicio" %}</a></li>
+                    <li><a href="{% url 'appSaludMentalJoven:articulos' %}"{% if n == 'articulos' or n == 'detalle_articulo' %} class="active" aria-current="page"{% endif %}>{% translate "Artículos" %}</a></li>
+                    <li><a href="{% url 'appSaludMentalJoven:categorias' %}"{% if n == 'categorias' or n == 'detalle_categoria' %} class="active" aria-current="page"{% endif %}>{% translate "Categorías" %}</a></li>
+                    <li><a href="{% url 'appSaludMentalJoven:actividades' %}"{% if n == 'actividades' or n == 'detalle_actividad' %} class="active" aria-current="page"{% endif %}>{% translate "Actividades" %}</a></li>
+                    <li><a href="{% url 'appSaludMentalJoven:recursos' %}"{% if n == 'recursos' or n == 'detalle_recurso' %} class="active" aria-current="page"{% endif %}>{% translate "Recursos de ayuda" %}</a></li>
                     <li><a href="{% url 'admin:index' %}">{% translate "Administración" %}</a></li>
                 </ul>
+                {% endwith %}
             </nav>
 
             <form action="{% url 'set_language' %}" method="post" class="lang-form" id="lang-form">

@@ -3,6 +3,7 @@ from django.db.models import Count, Q
 from django.http import JsonResponse
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.translation import gettext as _
 from django.views import View
 from django.views.generic import DetailView, ListView, TemplateView
@@ -25,7 +26,8 @@ class IndexView(TemplateView):
                 recursos_por_formato.append(recurso)
         context['recursos_por_formato'] = recursos_por_formato
         context['articulos'] = Articulo.objects.prefetch_related('categorias')[:3]
-        context['actividades'] = Actividad.objects.all()[:3]
+        # Solo las actividades que todavía no se han celebrado
+        context['actividades'] = Actividad.objects.filter(fecha__gte=timezone.now())[:3]
         return context
 
 

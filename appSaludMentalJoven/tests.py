@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone, translation
@@ -11,7 +13,8 @@ class BaseTest(TestCase):
     def setUp(self):
         translation.activate('es')
         self.actividad = Actividad.objects.create(
-            titulo='Taller de prueba', descripcion='Desc', fecha=timezone.now(), lugar='Online', plazas=1)
+            titulo='Taller de prueba', descripcion='Desc', fecha=timezone.now() + timedelta(days=7),
+            lugar='Online', plazas=1)
         self.url_actividad = reverse('appSaludMentalJoven:detalle_actividad', args=[self.actividad.pk])
 
 
@@ -51,6 +54,31 @@ class InscripcionTest(BaseTest):
         r = self.client.post(self.url_actividad, self.datos, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertEqual(r.status_code, 400)
         self.assertIn('__all__', r.json()['errores'])
+
+
+class ActividadFinalizadaTest(BaseTest):
+    def setUp(self):
+        super().setUp()
+        self.pasada = Actividad.objects.create(
+            titulo='Taller pasado', descripcion='Desc', fecha=timezone.now() - timedelta(days=1),
+            lugar='Online', plazas=10)
+
+    def test_no_admite_inscripciones(self):
+        url = reverse('appSaludMentalJoven:detalle_actividad', args=[self.pasada.pk])
+        r = self.client.post(url, InscripcionTest.datos, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(r.status_code, 400)
+        self.assertEqual(self.pasada.inscripciones.count(), 0)
+
+    def test_no_sale_en_proximas_de_la_portada(self):
+        r = self.client.get(reverse('appSaludMentalJoven:index'))
+        self.assertNotIn(self.pasada, r.context['actividades'])
+        self.assertIn(self.actividad, r.context['actividades'])
+
+
+class MenuActivoTest(BaseTest):
+    def test_marca_la_seccion_actual(self):
+        r = self.client.get(reverse('appSaludMentalJoven:articulos'))
+        self.assertContains(r, 'class="active" aria-current="page">Artículos')
 
 
 class BusquedaAjaxTest(BaseTest):
