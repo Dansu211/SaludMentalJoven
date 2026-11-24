@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
-{% block title %}Inicio | Salud Mental Joven{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Inicio" %} | Salud Mental Joven{% endblock %}
 
 {% block content %}
 <section class="hero-section">
     <div class="hero-content">
-        <span class="hero-eyebrow">Tu bienestar importa ♡</span>
-        <h1 id="hero-title">Bienestar emocional y apoyo para jóvenes</h1>
-        <p class="hero-lead">Un espacio seguro con recursos, talleres y artículos.</p>
+        <span class="hero-eyebrow">{% translate "Tu bienestar importa" %} ♡</span>
+        <h1 id="hero-title">{% translate "Bienestar emocional y apoyo para jóvenes" %}</h1>
+        <p class="hero-lead">{% translate "Un espacio seguro con recursos, talleres y artículos." %}</p>
     </div>
 </section>
 
 <section class="modules-preview">
-    <h2>Recursos de ayuda por formato</h2>
+    <h2>{% translate "Recursos de ayuda por formato" %}</h2>
     <div class="cards-grid">
         {% for r in recursos_por_formato %}
         <article class="info-card card-resources">
@@ -19,12 +20,12 @@
             <h3>{{ r.nombre }}</h3>
             <p>{{ r.descripcion|truncatewords:15 }}</p>
             {% if r.telefono %}<p>📞 {{ r.telefono }}</p>{% endif %}
-            <a href="{% url 'appSaludMentalJoven:detalle_recurso' r.id %}" class="tag">Ver recurso &rarr;</a>
+            <a href="{% url 'appSaludMentalJoven:detalle_recurso' r.id %}" class="tag">{% translate "Ver recurso" %} &rarr;</a>
         </article>
-        {% empty %}<p>No hay recursos.</p>{% endfor %}
+        {% empty %}<p>{% translate "No hay recursos registrados." %}</p>{% endfor %}
     </div>
 
-    <h2>Últimos Artículos</h2>
+    <h2>{% translate "Últimos artículos" %}</h2>
     <div class="cards-grid">
         {% for a in articulos %}
         <article class="info-card">
@@ -33,21 +34,21 @@
             </span>
             <h3>{{ a.titulo }}</h3>
             <p>{{ a.resumen }}</p>
-            <a href="{% url 'appSaludMentalJoven:detalle_articulo' a.id %}" class="tag">Leer artículo &rarr;</a>
+            <a href="{% url 'appSaludMentalJoven:detalle_articulo' a.id %}" class="tag">{% translate "Leer artículo" %} &rarr;</a>
         </article>
-        {% empty %}<p>No hay artículos.</p>{% endfor %}
+        {% empty %}<p>{% translate "No hay artículos registrados." %}</p>{% endfor %}
     </div>
 
-    <h2>Próximas Actividades</h2>
+    <h2>{% translate "Próximas actividades" %}</h2>
     <div class="cards-grid">
         {% for act in actividades %}
         <article class="info-card">
             <span class="card-number">📅 {{ act.fecha|date:"d/m/Y H:i" }} | {{ act.lugar }}</span>
             <h3>{{ act.titulo }}</h3>
             <p>{{ act.descripcion|truncatewords:15 }}</p>
-            <a href="{% url 'appSaludMentalJoven:detalle_actividad' act.id %}" class="tag">Ver detalles &rarr;</a>
+            <a href="{% url 'appSaludMentalJoven:detalle_actividad' act.id %}" class="tag">{% translate "Ver detalles" %} &rarr;</a>
         </article>
-        {% empty %}<p>No hay actividades.</p>{% endfor %}
+        {% empty %}<p>{% translate "No hay actividades programadas." %}</p>{% endfor %}
     </div>
 </section>
 {% endblock %}

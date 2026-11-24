@@ -1,6 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
+{% load static i18n %}{% get_current_language as LANGUAGE_CODE %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
     <meta charset="UTF-8">
@@ -18,26 +17,51 @@
                 🌱 Salud Mental Joven
             </a>
 
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="{% translate 'Navegación principal' %}">
                 <ul>
-                    <li><a href="{% url 'appSaludMentalJoven:index' %}">Inicio</a></li>
-                    <li><a href="{% url 'appSaludMentalJoven:articulos' %}">Artículos</a></li>
-                    <li><a href="{% url 'appSaludMentalJoven:categorias' %}">Categorías</a></li>
-                    <li><a href="{% url 'appSaludMentalJoven:actividades' %}">Actividades</a></li>
-                    <li><a href="{% url 'appSaludMentalJoven:recursos' %}">Recursos de ayuda</a></li>
-                    <li><a href="{% url 'admin:index' %}">Administración</a></li>
+                    <li><a href="{% url 'appSaludMentalJoven:index' %}">{% translate "Inicio" %}</a></li>
+                    <li><a href="{% url 'appSaludMentalJoven:articulos' %}">{% translate "Artículos" %}</a></li>
+                    <li><a href="{% url 'appSaludMentalJoven:categorias' %}">{% translate "Categorías" %}</a></li>
+                    <li><a href="{% url 'appSaludMentalJoven:actividades' %}">{% translate "Actividades" %}</a></li>
+                    <li><a href="{% url 'appSaludMentalJoven:recursos' %}">{% translate "Recursos de ayuda" %}</a></li>
+                    <li><a href="{% url 'admin:index' %}">{% translate "Administración" %}</a></li>
                 </ul>
             </nav>
+
+            <form action="{% url 'set_language' %}" method="post" class="lang-form" id="lang-form">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                <label for="lang-select" class="visually-hidden">{% translate "Idioma" %}</label>
+                <select name="language" id="lang-select">
+                    {% get_available_languages as LANGUAGES %}
+                    {% for code, nombre in LANGUAGES %}
+                    <option value="{{ code }}"{% if code == LANGUAGE_CODE %} selected{% endif %}>{{ code|upper }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="lang-btn">{% translate "Cambiar" %}</button>
+            </form>
         </div>
     </header>
 
     <main class="site-main container">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p class="alert alert-{{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
         {% block content %}{% endblock %}
     </main>
 
+    <button type="button" id="btn-arriba" class="btn-arriba" aria-label="{% translate 'Volver arriba' %}" hidden>↑</button>
+
     <footer class="site-footer">
-        <p>&copy; 2026 Salud Mental Joven</p>
+        <p>&copy; 2026 Salud Mental Joven · {% translate "Si necesitas ayuda urgente, llama al 024." %}</p>
     </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block scripts %}{% endblock %}
 </body>
 
 </html>

@@ -1,0 +1,255 @@
+[
+{
+  "model": "appSaludMentalJoven.categoria",
+  "pk": 1,
+  "fields": {
+    "nombre": "Autoestima y Bienestar",
+    "descripcion": "Recursos dedicados al autocuidado, la autocompasión y la confianza personal."
+  }
+},
+{
+  "model": "appSaludMentalJoven.categoria",
+  "pk": 2,
+  "fields": {
+    "nombre": "Ansiedad y Estrés",
+    "descripcion": "Herramientas y guías prácticas para gestionar la presión académica, social y laboral."
+  }
+},
+{
+  "model": "appSaludMentalJoven.categoria",
+  "pk": 3,
+  "fields": {
+    "nombre": "Hábitos Saludables",
+    "descripcion": "Consejos para mejorar el descanso, la rutina diaria y la salud emocional integral."
+  }
+},
+{
+  "model": "appSaludMentalJoven.tematica",
+  "pk": 1,
+  "fields": {
+    "nombre": "Ansiedad",
+    "descripcion": "Gestión de la ansiedad y los nervios."
+  }
+},
+{
+  "model": "appSaludMentalJoven.tematica",
+  "pk": 2,
+  "fields": {
+    "nombre": "Estrés académico",
+    "descripcion": "Presión por los estudios y los exámenes."
+  }
+},
+{
+  "model": "appSaludMentalJoven.tematica",
+  "pk": 3,
+  "fields": {
+    "nombre": "Autoestima",
+    "descripcion": "Confianza y diálogo interno."
+  }
+},
+{
+  "model": "appSaludMentalJoven.tematica",
+  "pk": 4,
+  "fields": {
+    "nombre": "Sueño",
+    "descripcion": "Descanso y hábitos de sueño."
+  }
+},
+{
+  "model": "appSaludMentalJoven.tematica",
+  "pk": 5,
+  "fields": {
+    "nombre": "Crisis emocional",
+    "descripcion": "Situaciones de crisis y prevención del suicidio."
+  }
+},
+{
+  "model": "appSaludMentalJoven.tematica",
+  "pk": 6,
+  "fields": {
+    "nombre": "Adaptación social",
+    "descripcion": "Transición a nuevas etapas y relaciones."
+  }
+},
+{
+  "model": "appSaludMentalJoven.formato",
+  "pk": 1,
+  "fields": {
+    "nombre": "Línea telefónica",
+    "descripcion": "Atención por teléfono, normalmente gratuita y confidencial."
+  }
+},
+{
+  "model": "appSaludMentalJoven.formato",
+  "pk": 2,
+  "fields": {
+    "nombre": "Chat online",
+    "descripcion": "Atención por escrito a través de chat o web."
+  }
+},
+{
+  "model": "appSaludMentalJoven.formato",
+  "pk": 3,
+  "fields": {
+    "nombre": "Atención presencial",
+    "descripcion": "Atención cara a cara en un centro o servicio."
+  }
+},
+{
+  "model": "appSaludMentalJoven.articulo",
+  "pk": 1,
+  "fields": {
+    "titulo": "Cómo gestionar la ansiedad en época de exámenes",
+    "resumen": "Técnicas sencillas de respiración y organización para reducir la presión académica.",
+    "contenido": "La época de exámenes suele generar picos de estrés elevados. Para combatirlo, es fundamental hacer pausas de 10 minutos cada hora de estudio, practicar la respiración diafragmática y mantener un descanso de entre 7 y 8 horas diarias. Si sientes desbordamiento, no dudes en apoyarte en tus compañeros o solicitar ayuda profesional.",
+    "autor": "Dra. Elena Gómez",
+    "fecha_publicacion": "2026-10-29",
+    "categorias": [
+      2,
+      3
+    ],
+    "tematicas": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "appSaludMentalJoven.articulo",
+  "pk": 2,
+  "fields": {
+    "titulo": "Guía práctica para mejorar tu higiene del sueño",
+    "resumen": "Descubre cómo influye el descanso nocturno en tu rendimiento y bienestar emocional.",
+    "contenido": "El uso de pantallas azules antes de acostarse reduce la secreción de melatonina, dificultando el sueño profundo. Procura desconectar tus dispositivos al menos 30 minutos antes de ir a dormir, mantén tu habitación bien ventilada y evita bebidas estimulantes durante la tarde.",
+    "autor": "Equipo SMJ",
+    "fecha_publicacion": "2026-10-29",
+    "categorias": [
+      3
+    ],
+    "tematicas": [
+      4
+    ]
+  }
+},
+{
+  "model": "appSaludMentalJoven.articulo",
+  "pk": 3,
+  "fields": {
+    "titulo": "Construyendo un diálogo interno compasivo",
+    "resumen": "Claves para identificar los pensamientos automáticos negativos y transformarlos.",
+    "contenido": "A menudo nos convertimos en nuestros jueces más severos. Aprender a hablarnos con la misma empatía que ofreceríamos a un amigo cercano es fundamental para reforzar la autoestima. Intenta anotar tres logros diarios, por pequeños que parezcan.",
+    "autor": "Psic. Carlos Ruiz",
+    "fecha_publicacion": "2026-10-29",
+    "categorias": [
+      2,
+      1
+    ],
+    "tematicas": [
+      3
+    ]
+  }
+},
+{
+  "model": "appSaludMentalJoven.actividad",
+  "pk": 1,
+  "fields": {
+    "titulo": "Taller interactivo de Mindful Studying",
+    "descripcion": "Sesión práctica de 90 minutos enfocada en técnicas de concentración activa, relajación guiada y prevención del burnout estudiantil.",
+    "fecha": "2026-11-20T05:00:00Z",
+    "lugar": "Aula Magna - Modalidad Presencial",
+    "plazas": 20,
+    "tematicas": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "appSaludMentalJoven.actividad",
+  "pk": 2,
+  "fields": {
+    "titulo": "Grupo de diálogo: Transición a la universidad",
+    "descripcion": "Espacio seguro para compartir experiencias, temores y recursos de adaptación a la vida académica y social universitaria.",
+    "fecha": "2026-12-16T17:31:34Z",
+    "lugar": "Sala Virtual (Online por Zoom)",
+    "plazas": 20,
+    "tematicas": [
+      6
+    ]
+  }
+},
+{
+  "model": "appSaludMentalJoven.inscripcion",
+  "pk": 1,
+  "fields": {
+    "actividad": 1,
+    "nombre": "Lucía Ejemplo",
+    "email": "lucia.ejemplo@example.com",
+    "edad": 17,
+    "comentario": "Me interesa mucho el taller.",
+    "fecha_inscripcion": "2026-11-24T12:00:42.346Z"
+  }
+},
+{
+  "model": "appSaludMentalJoven.inscripcion",
+  "pk": 2,
+  "fields": {
+    "actividad": 2,
+    "nombre": "Mikel Ejemplo",
+    "email": "mikel.ejemplo@example.com",
+    "edad": 21,
+    "comentario": "",
+    "fecha_inscripcion": "2026-11-24T12:00:42.358Z"
+  }
+},
+{
+  "model": "appSaludMentalJoven.recursoayuda",
+  "pk": 1,
+  "fields": {
+    "nombre": "Línea 024 - Atención a la conducta suicida",
+    "descripcion": "Servicio público, gratuito, anónimo y confidencial del Ministerio de Sanidad para la atención a personas con conducta suicida o familiares.",
+    "formato": 1,
+    "telefono": "024",
+    "email": "ayuda@linea024.gob.es",
+    "web": "https://www.sanidad.gob.es/linea024/",
+    "horario": "24/7",
+    "tematicas": [
+      5
+    ]
+  }
+},
+{
+  "model": "appSaludMentalJoven.recursoayuda",
+  "pk": 2,
+  "fields": {
+    "nombre": "Teléfono de la Esperanza",
+    "descripcion": "ONG especializada en el abordaje de crisis emocionales e intervención en salud mental.",
+    "formato": 1,
+    "telefono": "717 003 717",
+    "email": "contacto@telefonodelaesperanza.org",
+    "web": "https://telefonodelaesperanza.org/",
+    "horario": "24/7",
+    "tematicas": [
+      1,
+      5
+    ]
+  }
+},
+{
+  "model": "appSaludMentalJoven.recursoayuda",
+  "pk": 3,
+  "fields": {
+    "nombre": "Fundación ANAR",
+    "descripcion": "Ayuda a niños, niñas y adolescentes en riesgo. Atención por teléfono y por chat en su web.",
+    "formato": 2,
+    "telefono": "900 20 20 10",
+    "email": "",
+    "web": "https://www.anar.org/",
+    "horario": "24/7",
+    "tematicas": [
+      6,
+      5
+    ]
+  }
+}
+]

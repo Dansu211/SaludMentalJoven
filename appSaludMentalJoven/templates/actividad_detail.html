@@ -1,23 +1,49 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %}{{ actividad.titulo }} | Salud Mental Joven{% endblock %}
 
 {% block content %}
 <article class="info-card">
     <span class="card-number">📍 {{ actividad.lugar }}</span>
     <h1>{{ actividad.titulo }}</h1>
-    <p><strong>Fecha:</strong>
-        {{ actividad.fecha|date:"d/m/Y H:i" }} hrs |
-        <strong>Plazas:</strong>
-        {{ actividad.plazas }}
+    <p><strong>{% translate "Fecha" %}:</strong>
+        {{ actividad.fecha|date:"d/m/Y H:i" }} |
+        <strong>{% translate "Plazas libres" %}:</strong>
+        <span id="plazas-libres">{{ actividad.plazas_libres }}</span> / {{ actividad.plazas }}
     </p>
     {% if actividad.tematicas.exists %}
-    <p><strong>Temáticas:</strong>
+    <p><strong>{% translate "Temáticas" %}:</strong>
         {% for t in actividad.tematicas.all %}<a href="{% url 'appSaludMentalJoven:detalle_tematica' t.id %}" class="tag">{{ t.nombre }}</a> {% endfor %}
     </p>
     {% endif %}
     <hr>
     <div>{{ actividad.descripcion|linebreaks }}</div>
-    <br>
-    <a href="{% url 'appSaludMentalJoven:actividades' %}" class="tag">&larr; Volver</a>
 </article>
+
+<section class="info-card form-card" aria-labelledby="titulo-inscripcion">
+    <h2 id="titulo-inscripcion">{% translate "Inscríbete en esta actividad" %}</h2>
+
+    <div id="inscripcion-resultado" class="form-resultado" aria-live="polite"></div>
+
+    {% if actividad.plazas_libres > 0 %}
+    <form method="post" id="form-inscripcion" class="form-inscripcion" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        <div class="alert alert-error">{{ form.non_field_errors }}</div>
+        {% endif %}
+        {% for campo in form %}
+        <div class="form-campo">
+            <label for="{{ campo.id_for_label }}">{{ campo.label }}</label>
+            {{ campo }}
+            <span class="campo-error" id="error-{{ campo.name }}">{{ campo.errors|join:" " }}</span>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn">{% translate "Inscribirme" %}</button>
+    </form>
+    {% else %}
+    <p class="alert alert-error">{% translate "No quedan plazas libres en esta actividad." %}</p>
+    {% endif %}
+</section>
+
+<a href="{% url 'appSaludMentalJoven:actividades' %}" class="tag">&larr; {% translate "Volver" %}</a>
 {% endblock %}

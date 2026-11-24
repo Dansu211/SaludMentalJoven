@@ -1,0 +1,188 @@
+# Traducciones al inglés de Salud Mental Joven (E4a - opción 6)
+msgid ""
+msgstr ""
+"Project-Id-Version: saludMentalJoven\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Actividades"
+msgstr "Activities"
+
+msgid "Administración"
+msgstr "Administration"
+
+msgid "Artículos"
+msgstr "Articles"
+
+msgid "Artículos de Bienestar"
+msgstr "Wellbeing Articles"
+
+msgid "Artículos de esta categoría"
+msgstr "Articles in this category"
+
+msgid "Bienestar emocional y apoyo para jóvenes"
+msgstr "Emotional wellbeing and support for young people"
+
+msgid "Buscar artículos"
+msgstr "Search articles"
+
+msgid "Cambiar"
+msgstr "Change"
+
+msgid "Categorías"
+msgstr "Categories"
+
+msgid "Comentario (opcional)"
+msgstr "Comment (optional)"
+
+msgid "Edad"
+msgstr "Age"
+
+msgid "Ej.: ansiedad, sueño..."
+msgstr "E.g.: anxiety, sleep..."
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Esta categoría todavía no tiene artículos."
+msgstr "This category has no articles yet."
+
+msgid "Fecha"
+msgstr "Date"
+
+msgid "Filtrar por formato"
+msgstr "Filter by format"
+
+msgid "HORARIO"
+msgstr "OPENING HOURS"
+
+msgid "Idioma"
+msgstr "Language"
+
+msgid "Inicio"
+msgstr "Home"
+
+msgid "Inscribirme"
+msgstr "Sign me up"
+
+msgid "Inscríbete en esta actividad"
+msgstr "Sign up for this activity"
+
+msgid "Las actividades están pensadas para personas de 12 a 30 años."
+msgstr "Activities are designed for people aged 12 to 30."
+
+msgid "Leer artículo"
+msgstr "Read article"
+
+msgid "Líneas y Recursos de Apoyo"
+msgstr "Helplines and Support Resources"
+
+msgid "Navegación principal"
+msgstr "Main navigation"
+
+msgid "No hay actividades programadas."
+msgstr "There are no scheduled activities."
+
+msgid "No hay actividades sobre esta temática."
+msgstr "There are no activities on this topic."
+
+msgid "No hay artículos registrados."
+msgstr "There are no articles yet."
+
+msgid "No hay artículos sobre esta temática."
+msgstr "There are no articles on this topic."
+
+msgid "No hay categorías registradas."
+msgstr "There are no categories yet."
+
+msgid "No hay recursos registrados."
+msgstr "There are no resources yet."
+
+msgid "No hay recursos sobre esta temática."
+msgstr "There are no resources on this topic."
+
+msgid "No quedan plazas libres en esta actividad."
+msgstr "There are no places left in this activity."
+
+msgid "No se han encontrado artículos."
+msgstr "No articles found."
+
+msgid "Nombre"
+msgstr "Name"
+
+msgid "Plazas libres"
+msgstr "Places left"
+
+msgid "Por"
+msgstr "By"
+
+msgid "Próximas actividades"
+msgstr "Upcoming activities"
+
+msgid "Recursos de ayuda"
+msgstr "Help resources"
+
+msgid "Recursos de ayuda por formato"
+msgstr "Help resources by format"
+
+msgid "Si necesitas ayuda urgente, llama al 024."
+msgstr "If you need urgent help, call 024."
+
+msgid "Talleres y Actividades"
+msgstr "Workshops and Activities"
+
+msgid "Teléfono"
+msgstr "Phone"
+
+msgid "Temática"
+msgstr "Topic"
+
+msgid "Temáticas"
+msgstr "Topics"
+
+msgid "Todas las categorías"
+msgstr "All categories"
+
+msgid "Todos"
+msgstr "All"
+
+msgid "Tu bienestar importa"
+msgstr "Your wellbeing matters"
+
+msgid "Un espacio seguro con recursos, talleres y artículos."
+msgstr "A safe space with resources, workshops and articles."
+
+msgid "Ver categoría"
+msgstr "View category"
+
+msgid "Ver detalles"
+msgstr "View details"
+
+msgid "Ver recurso"
+msgstr "View resource"
+
+msgid "Volver"
+msgstr "Back"
+
+msgid "Volver arriba"
+msgstr "Back to top"
+
+msgid "Ya existe una inscripción con ese email en esta actividad."
+msgstr "There is already a registration with that email for this activity."
+
+msgid "resultado(s)"
+msgstr "result(s)"
+
+msgid "¡Inscripción completada, %(nombre)s! Te esperamos."
+msgstr "Registration complete, %(nombre)s! See you there."
+
+msgid "Últimos artículos"
+msgstr "Latest articles"
+
+msgid "%(n)s artículo"
+msgid_plural "%(n)s artículos"
+msgstr[0] "%(n)s article"
+msgstr[1] "%(n)s articles"

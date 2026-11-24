@@ -1,18 +1,30 @@
 {% extends 'base.html' %}
-{% block title %}Artículos | Salud Mental Joven{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Artículos" %} | Salud Mental Joven{% endblock %}
 
 {% block content %}
-<h1>Artículos de Bienestar</h1>
-<div class="cards-grid">
+<h1>{% translate "Artículos de Bienestar" %}</h1>
+
+<div class="buscador">
+    <label for="buscador-articulos">{% translate "Buscar artículos" %}</label>
+    <input type="search" id="buscador-articulos" placeholder="{% translate 'Ej.: ansiedad, sueño...' %}"
+           data-url="{% url 'appSaludMentalJoven:buscar_articulos' %}" autocomplete="off"
+           data-texto-leer="{% translate 'Leer artículo' %}"
+           data-texto-vacio="{% translate 'No se han encontrado artículos.' %}"
+           data-texto-resultados="{% translate 'resultado(s)' %}">
+    <p id="buscador-estado" class="buscador-estado" aria-live="polite"></p>
+</div>
+
+<div class="cards-grid" id="lista-articulos">
     {% for a in articulos %}
     <article class="info-card">
         <span class="card-number">
             {% for c in a.categorias.all %}<a href="{% url 'appSaludMentalJoven:detalle_categoria' c.id %}">{{ c.nombre|upper }}</a>{% if not forloop.last %} · {% endif %}{% endfor %}
         </span>
-        <h3>{{ a.titulo }}</h3>
+        <h2>{{ a.titulo }}</h2>
         <p>{{ a.resumen }}</p>
-        <a href="{% url 'appSaludMentalJoven:detalle_articulo' a.id %}" class="tag">Leer artículo &rarr;</a>
+        <a href="{% url 'appSaludMentalJoven:detalle_articulo' a.id %}" class="tag">{% translate "Leer artículo" %} &rarr;</a>
     </article>
-    {% empty %}<p>No hay artículos registrados.</p>{% endfor %}
+    {% empty %}<p>{% translate "No hay artículos registrados." %}</p>{% endfor %}
 </div>
 {% endblock %}

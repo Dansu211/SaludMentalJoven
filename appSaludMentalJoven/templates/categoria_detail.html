@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %}{{ categoria.nombre }} | Salud Mental Joven{% endblock %}
 
 {% block content %}
 <h1>{{ categoria.nombre }}</h1>
 <p>{{ categoria.descripcion }}</p>
 
-<h2>Artículos de esta categoría</h2>
+<h2>{% translate "Artículos de esta categoría" %}</h2>
 <div class="cards-grid">
     {% for a in articulos %}
     <article class="info-card">
@@ -14,10 +15,10 @@
         </span>
         <h3>{{ a.titulo }}</h3>
         <p>{{ a.resumen }}</p>
-        <a href="{% url 'appSaludMentalJoven:detalle_articulo' a.id %}" class="tag">Leer artículo &rarr;</a>
+        <a href="{% url 'appSaludMentalJoven:detalle_articulo' a.id %}" class="tag">{% translate "Leer artículo" %} &rarr;</a>
     </article>
-    {% empty %}<p>Esta categoría todavía no tiene artículos.</p>{% endfor %}
+    {% empty %}<p>{% translate "Esta categoría todavía no tiene artículos." %}</p>{% endfor %}
 </div>
 <br>
-<a href="{% url 'appSaludMentalJoven:categorias' %}" class="tag">&larr; Todas las categorías</a>
+<a href="{% url 'appSaludMentalJoven:categorias' %}" class="tag">&larr; {% translate "Todas las categorías" %}</a>
 {% endblock %}

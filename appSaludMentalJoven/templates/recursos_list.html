@@ -1,17 +1,26 @@
 {% extends 'base.html' %}
-{% block title %}Recursos de Ayuda | Salud Mental Joven{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Recursos de ayuda" %} | Salud Mental Joven{% endblock %}
 
 {% block content %}
-<h2>Líneas y Recursos de Apoyo</h2>
+<h1>{% translate "Líneas y Recursos de Apoyo" %}</h1>
+
+<div class="filtros" role="group" aria-label="{% translate 'Filtrar por formato' %}">
+    <button type="button" class="filtro activo" data-formato="todos">{% translate "Todos" %}</button>
+    {% for f in formatos %}
+    <button type="button" class="filtro" data-formato="{{ f.id }}">{{ f.nombre }}</button>
+    {% endfor %}
+</div>
+
 <div class="cards-grid">
     {% for r in recursos %}
-    <article class="info-card card-resources">
+    <article class="info-card card-resources recurso" data-formato="{{ r.formato_id }}">
         <span class="card-number">{{ r.formato.nombre|upper }} | {{ r.horario }}</span>
-        <h3>{{ r.nombre }}</h3>
+        <h2>{{ r.nombre }}</h2>
         <p>{{ r.descripcion|truncatewords:20 }}</p>
         {% if r.telefono %}<p>📞 <strong>{{ r.telefono }}</strong></p>{% endif %}
-        <a href="{% url 'appSaludMentalJoven:detalle_recurso' r.id %}" class="tag">Ver recurso &rarr;</a>
+        <a href="{% url 'appSaludMentalJoven:detalle_recurso' r.id %}" class="tag">{% translate "Ver recurso" %} &rarr;</a>
     </article>
-    {% empty %}<p>No hay recursos registrados.</p>{% endfor %}
+    {% empty %}<p>{% translate "No hay recursos registrados." %}</p>{% endfor %}
 </div>
 {% endblock %}

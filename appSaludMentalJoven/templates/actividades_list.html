@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
-{% block title %}Actividades | Salud Mental Joven{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Actividades" %} | Salud Mental Joven{% endblock %}
 
 {% block content %}
-<h1>Talleres y Actividades</h1>
+<h1>{% translate "Talleres y Actividades" %}</h1>
 <div class="cards-grid">
     {% for act in actividades %}
     <article class="info-card">
         <span class="card-number">📅 {{ act.fecha|date:"d/m/Y H:i" }} | {{ act.lugar }}</span>
-        <h3>{{ act.titulo }}</h3>
+        <h2>{{ act.titulo }}</h2>
         <p>{{ act.descripcion|truncatewords:15 }}</p>
-        <a href="{% url 'appSaludMentalJoven:detalle_actividad' act.id %}" class="tag">Ver detalles &rarr;</a>
+        <a href="{% url 'appSaludMentalJoven:detalle_actividad' act.id %}" class="tag">{% translate "Ver detalles" %} &rarr;</a>
     </article>
-    {% empty %}<p>No hay actividades programadas.</p>{% endfor %}
+    {% empty %}<p>{% translate "No hay actividades programadas." %}</p>{% endfor %}
 </div>
 {% endblock %}

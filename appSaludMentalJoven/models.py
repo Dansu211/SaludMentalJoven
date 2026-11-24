@@ -77,6 +77,32 @@ class Actividad(models.Model):
     def __str__(self):
         return self.titulo
 
+    @property
+    def plazas_libres(self):
+        return max(self.plazas - self.inscripciones.count(), 0)
+
+
+class Inscripcion(models.Model):
+    """Inscripción de una persona en una actividad (se crea desde el formulario público)."""
+    actividad = models.ForeignKey(Actividad, on_delete=models.CASCADE, related_name='inscripciones',
+                                  verbose_name="Actividad")
+    nombre = models.CharField(max_length=100, verbose_name="Nombre")
+    email = models.EmailField(verbose_name="Email")
+    edad = models.PositiveSmallIntegerField(verbose_name="Edad")
+    comentario = models.TextField(blank=True, verbose_name="Comentario")
+    fecha_inscripcion = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de inscripción")
+
+    class Meta:
+        verbose_name = "Inscripción"
+        verbose_name_plural = "Inscripciones"
+        ordering = ['-fecha_inscripcion']
+        constraints = [
+            models.UniqueConstraint(fields=['actividad', 'email'], name='inscripcion_unica_por_email'),
+        ]
+
+    def __str__(self):
+        return f"{self.nombre} → {self.actividad}"
+
 
 class RecursoAyuda(models.Model):
     nombre = models.CharField(max_length=200, verbose_name="Nombre de la entidad")

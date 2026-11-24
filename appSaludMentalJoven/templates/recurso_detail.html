@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %}{{ recurso.nombre }} | Salud Mental Joven{% endblock %}
 
 {% block content %}
 <article class="info-card card-resources">
-    <span class="card-number">{{ recurso.formato.nombre|upper }} | HORARIO: {{ recurso.horario }}</span>
+    <span class="card-number">{{ recurso.formato.nombre|upper }} | {% translate "HORARIO" %}: {{ recurso.horario }}</span>
     <h1>{{ recurso.nombre }}</h1>
     {% if recurso.tematicas.exists %}
-    <p><strong>Temáticas:</strong>
+    <p><strong>{% translate "Temáticas" %}:</strong>
         {% for t in recurso.tematicas.all %}<a href="{% url 'appSaludMentalJoven:detalle_tematica' t.id %}" class="tag">{{ t.nombre }}</a> {% endfor %}
     </p>
     {% endif %}
     <hr>
     <div>{{ recurso.descripcion|linebreaks }}</div>
     <ul>
-        {% if recurso.telefono %}<li>📞 Teléfono: <strong>{{ recurso.telefono }}</strong></li>{% endif %}
+        {% if recurso.telefono %}<li>📞 {% translate "Teléfono" %}: <strong>{{ recurso.telefono }}</strong></li>{% endif %}
         {% if recurso.email %}<li>✉️ Email: <a href="mailto:{{ recurso.email }}">{{ recurso.email }}</a></li>{% endif %}
         {% if recurso.web %}<li>🌐 Web: <a href="{{ recurso.web }}" target="_blank" rel="noopener">{{ recurso.web }}</a></li>{% endif %}
     </ul>
     <br>
-    <a href="{% url 'appSaludMentalJoven:recursos' %}" class="tag">&larr; Volver</a>
+    <a href="{% url 'appSaludMentalJoven:recursos' %}" class="tag">&larr; {% translate "Volver" %}</a>
 </article>
 {% endblock %}

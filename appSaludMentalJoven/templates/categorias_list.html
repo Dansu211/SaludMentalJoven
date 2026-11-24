@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
-{% block title %}Categorías | Salud Mental Joven{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Categorías" %} | Salud Mental Joven{% endblock %}
 
 {% block content %}
-<h1>Categorías</h1>
+<h1>{% translate "Categorías" %}</h1>
 <div class="cards-grid">
     {% for c in categorias %}
     <article class="info-card">
-        <span class="card-number">{{ c.articulos.count }} artículo{{ c.articulos.count|pluralize }}</span>
-        <h3>{{ c.nombre }}</h3>
+        <span class="card-number">{% blocktranslate count n=c.num_articulos %}{{ n }} artículo{% plural %}{{ n }} artículos{% endblocktranslate %}</span>
+        <h2>{{ c.nombre }}</h2>
         <p>{{ c.descripcion }}</p>
-        <a href="{% url 'appSaludMentalJoven:detalle_categoria' c.id %}" class="tag">Ver categoría &rarr;</a>
+        <a href="{% url 'appSaludMentalJoven:detalle_categoria' c.id %}" class="tag">{% translate "Ver categoría" %} &rarr;</a>
     </article>
-    {% empty %}<p>No hay categorías registradas.</p>{% endfor %}
+    {% empty %}<p>{% translate "No hay categorías registradas." %}</p>{% endfor %}
 </div>
 {% endblock %}
